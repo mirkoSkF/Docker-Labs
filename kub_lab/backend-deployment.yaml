@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: backend-enterprise
+  template:
+    metadata:
+      labels:
+        app: backend-enterprise
+    spec:
+      containers:
+      - name: java-container
+        image: nginx
+        ports:
+        - containerPort: 80
